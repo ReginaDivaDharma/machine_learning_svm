@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Card, Button, Input, message, Row, Col } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
 
 interface MachineLearningCardProps {
   onTextSubmit: (text: string) => void;
@@ -15,11 +14,9 @@ const MachineLearningCard: React.FC<MachineLearningCardProps> = ({ onTextSubmit 
   };
 
   const handleSubmit = async () => {
-    // Call the onTextSubmit callback with the entered text
-    onTextSubmit(text);
-    // Simulate API call to predict sentiment
+    // Send text data to the backend for prediction
     try {
-      const response = await fetch('https://api.example.com/predictSentiment', {
+      const response = await fetch('http://127.0.0.1:5000/predictSentiment', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -99,7 +96,7 @@ const MachineLearningCard: React.FC<MachineLearningCardProps> = ({ onTextSubmit 
             <h1 style={{ color: '#6D9773', textAlign: 'center', marginBottom: '20px' }}>Prediction</h1>
             <div style={{ textAlign: 'center' }}>
               <h4 style={{ color: '#6D9773', textAlign: 'center', marginBottom: '20px' }}>The text inputted is predicted to be : </h4>
-              <p>{prediction}</p>
+              <h1>{prediction}</h1>
             </div>
           </Card>
         </Col>
