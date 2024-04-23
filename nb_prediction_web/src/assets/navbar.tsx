@@ -11,10 +11,12 @@ const Navbar: React.FC = () => {
     <Header className='navbar'>
       <div className="logo-container">
         {/* <img src={logo} alt="Logo" className="logo-image"/> */}
-        <span className="logo-text">Naive Bayes</span>
+        <span className="logo-text">Machine Learning</span>
       </div>
       <div className="menu-container">
-      <Menu theme="light" mode="horizontal" className="menu" selectedKeys={[]}>
+      <Menu mode="horizontal" className="menu" selectedKeys={[]}
+       style={{ backgroundColor: '#0C3B2E' }}
+      >
         <Menu.Item key="home" className="menu-item">
             <Link to="/">Homepage</Link>
         </Menu.Item>

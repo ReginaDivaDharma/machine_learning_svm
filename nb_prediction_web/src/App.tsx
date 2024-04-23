@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   BrowserRouter,
   Routes,
@@ -6,15 +7,17 @@ import {
 import Navbar from "./assets/navbar";
 import HomepageDashboard from "./dashboard/homepage/homepageDasboard";
 
-
 function App() {
+  useEffect(() => {
+    document.title = "Machine Learning";
+  }, []);
+  
   return (
     <BrowserRouter>
     <Navbar />
     <Routes>
       <Route path="/" element={<HomepageDashboard />} />
     </Routes>
-
     </BrowserRouter>
   );
 }
