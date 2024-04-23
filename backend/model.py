@@ -1,39 +1,14 @@
 # Importing the libraries
-import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-%matplotlib inline
-import re
-import string
-import seaborn as sns
-from wordcloud import WordCloud
-
-import nltk
-import spacy
-from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
-from nltk.tokenize import word_tokenize
-from nltk.corpus import wordnet
-from nltk import pos_tag
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
-
-from collections import Counter
-
-from sklearn.model_selection import cross_validate
+import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.model_selection import StratifiedKFold
-from sklearn.utils import shuffle
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.svm import SVC
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score, f1_score, precision_score, recall_score, accuracy_score
-import seaborn as sns
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LinearRegression
+import pickle
+import requests
+import json
 
 # Importing the dataset
-data = pd.read_csv('cleanedDataset.csv')
+dataset = pd.read_csv('Salary_Data.csv')
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, 1].values
 

@@ -1,16 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Layout, Col } from 'antd';
-import UploadFile from '../../assets/dashboard/uploadFile';
 import '../../global.css';
 import MachineLearningCard from '../../assets/dashboard/machineLearningCard';
+import TutorialCard from '../../assets/dashboard/tutorialCard';
 
 const { Content, Footer } = Layout;
 
 const HomepageDashboard: React.FC = () => {
-    const handleFileChange = (file: File) => {
-        // Handle the file change event here
-        console.log('Selected file:', file);
-        // You can call your API to process the file here
+    const [result, setResult] = useState<string>('');
+
+    const handleTextSubmit = (text: string) => {
+        // Here you can perform any necessary actions with the submitted text
+        // For example, you can make an API request to a backend server to process the text
+        // For demonstration purposes, let's just set the result in the state
+        setResult(`Text submitted: ${text}`);
     };
 
     return (
@@ -26,13 +29,13 @@ const HomepageDashboard: React.FC = () => {
             >
                  <Col span={6}>
                     <div className='content-item-mid' style={{marginBottom: '40px'}}>
-                        <UploadFile onFileChange={handleFileChange}/>
+                        <TutorialCard/>
                     </div>
                  </Col>
 
                  <Col span={16}>
                     <div className='content-item-mid' style={{marginBottom: '40px'}}>
-                        <MachineLearningCard onFileChange={handleFileChange}/>
+                        <MachineLearningCard onTextSubmit={handleTextSubmit}/>
                     </div>
                  </Col>
             </Content>
